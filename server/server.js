@@ -1,5 +1,7 @@
 'use strict';
 
+require('./config/config');
+
 const _ = require('lodash');
 const {ObjectID} = require('mongodb');
 const express = require('express');
@@ -10,7 +12,7 @@ let {User} = require('./models/user');
 let {Todo} = require('./models/todo');
 
 let app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 app.use(bodyParser.json());
 
