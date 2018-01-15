@@ -23,13 +23,13 @@ const users = [{
 }];
 
 const todos = [{
-    _id: new ObjectID(),
-    text: "first test todo"
-  }, {
-    _id: new ObjectID(),
-    text: "second test todo",
-    completed: true,
-    completedAt: 333
+  _id: new ObjectID(),
+  text: 'First test todo'
+}, {
+  _id: new ObjectID(),
+  text: 'Second test todo',
+  completed: true,
+  completedAt: 333
 }];
 
 const populateTodos = (done) => {
@@ -40,16 +40,11 @@ const populateTodos = (done) => {
 
 const populateUsers = (done) => {
   User.remove({}).then(() => {
-    let userOnePromise = new User(user[0]).save();
-    let userTwoPromise = new User(user[1]).save();
+    let userOnePromise = new User(users[0]).save();
+    let userTwoPromise = new User(users[1]).save();
 
     return Promise.all([userOnePromise, userTwoPromise]);
   }).then(() => done());
 };
 
-module.exports = {
-  todos,
-  populateTodos,
-  users,
-  populateUsers
-};
+module.exports = {todos, populateTodos, users, populateUsers};
